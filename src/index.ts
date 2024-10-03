@@ -12,7 +12,7 @@ const client = createPublicClient({
   transport: http(),
 })
 
-const owner = privateKeyToAccount(import.meta.env.VITE_PRIVATE_KEY as Hex)
+const owner = privateKeyToAccount(process.env.VITE_PRIVATE_KEY as Hex)
 
 const account = await toCoinbaseSmartAccount({
   client,
@@ -21,7 +21,7 @@ const account = await toCoinbaseSmartAccount({
 
 const paymasterClient = createPaymasterClient({
   transport: http(
-    import.meta.env.VITE_PAYMASTER_RPC_URL 
+    process.env.VITE_PAYMASTER_RPC_URL 
   ),
 })
 
@@ -29,7 +29,7 @@ const bundlerClient = createBundlerClient({
   account,
   client,
   transport: http(
-    import.meta.env.VITE_BUNDLER_RPC_URL 
+    process.env.VITE_BUNDLER_RPC_URL 
   ),
   paymaster: paymasterClient,
   paymasterContext: {
