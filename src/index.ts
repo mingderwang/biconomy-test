@@ -6,7 +6,7 @@ import {
 } from 'viem/account-abstraction'
 import { privateKeyToAccount } from 'viem/accounts'
 import { sepolia } from 'viem/chains'
-
+console.log(process.env.VITE_BUNDLER_RPC_URL)
 const client = createPublicClient({
   chain: sepolia,
   transport: http(),
