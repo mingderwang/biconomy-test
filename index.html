@@ -10,7 +10,7 @@
     <script type="module">
       document.querySelector('button').addEventListener('click', async () => {
         document.querySelector('#app').innerHTML = 'Sending...'
-        const response = await import('./index.ts').then((x) => x.default);
+        const response = await import('./src/index.ts').then((x) => x.default);
         document.querySelector('#app').innerHTML = response
           .map((x) => `<div style="margin-top: 16px;">${x}</div>`)
           .join('');
